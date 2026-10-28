@@ -1,7 +1,7 @@
 [
   {
     "asset": "portrait-ana.jpg",
-    "provider": "Ana Horvat (fictional)",
+    "provider": "Sanne de Vries (fictional)",
     "photographer": "Brooke Balentine",
     "source": "https://unsplash.com/photos/cdZcNIca4w0",
     "license": "Unsplash License",
@@ -9,7 +9,7 @@
   },
   {
     "asset": "portrait-marko.jpg",
-    "provider": "Marko Babić (fictional)",
+    "provider": "Daan van Dijk (fictional)",
     "photographer": "Vitaly Gariev",
     "source": "https://unsplash.com/photos/k3pW97tvVPs",
     "license": "Unsplash License",
@@ -17,7 +17,7 @@
   },
   {
     "asset": "portrait-ivana.jpg",
-    "provider": "Ivana Kovač (fictional)",
+    "provider": "Lotte Jansen (fictional)",
     "photographer": "Vitaly Gariev",
     "source": "https://unsplash.com/photos/gSSr-hVwOxU",
     "license": "Unsplash License",
@@ -25,7 +25,7 @@
   },
   {
     "asset": "portrait-petra.jpg",
-    "provider": "Petra Jurić (fictional)",
+    "provider": "Noor El Amrani (fictional)",
     "photographer": "İsmail Efe Top",
     "source": "https://unsplash.com/photos/qzMjpuILjWQ",
     "license": "Unsplash License",

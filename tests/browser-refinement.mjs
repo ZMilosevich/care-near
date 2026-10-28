@@ -318,7 +318,7 @@ try {
   await page
     .locator('input[data-booking-field="forWho"][value="someone"]')
     .check();
-  await page.locator("#recipient-name").fill("Mara Kralj");
+  await page.locator("#recipient-name").fill("Mila Smit");
   assert.equal(await page.locator('input[data-booking-field="consent"]').isChecked(), false);
   await page.getByRole("button", { name: "Continue" }).click();
   assert.match(await page.locator("#booking-errors").innerText(), /permission/);
@@ -402,12 +402,12 @@ try {
     await page.locator("#contact-phone-error").innerText(),
     /digits and phone characters/i,
   );
-  await page.locator("#contact-name").fill("Nika");
-  await page.locator("#contact-phone").fill("+385 91 234 5678");
+  await page.locator("#contact-name").fill("Eva");
+  await page.locator("#contact-phone").fill("+31 6 1234 5678");
   await page.getByRole("button", { name: "Save for this page" }).click();
   assert.equal(
     await page.locator("[data-explicit-dialer]").getAttribute("href"),
-    "tel:+385912345678",
+    "tel:+31612345678",
   );
   await page.locator(".dialog-close").click();
   assert.match(

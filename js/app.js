@@ -18,7 +18,7 @@ import {
   normalizeVisitStatus,
   phoneHref,
   receiptText,
-  todayInZagreb,
+  todayInAmsterdam,
   validateBookingStep,
   validateOnboardingStep,
 } from "./logic.js";
@@ -31,7 +31,7 @@ const toast = document.querySelector("#toast");
 const menuToggle = document.querySelector("#menu-toggle");
 const primaryNav = document.querySelector("#primary-nav");
 
-const today = todayInZagreb();
+const today = todayInAmsterdam();
 
 const filters = {
   service: "all",
@@ -47,7 +47,7 @@ const createBooking = (overrides = {}) => ({
   service: "appointment",
   date: addDaysISO(today, 1),
   time: "",
-  address: "Krapinska 18, Zagreb",
+  address: "Prinsengracht 184, Amsterdam",
   duration: 90,
   notes: "",
   caregiverId: "ana",
@@ -221,10 +221,6 @@ function icon(name, extraClass = "") {
   return `<svg class="icon ${extraClass}" aria-hidden="true" viewBox="0 0 24 24">${paths[name] || paths.info}</svg>`;
 }
 
-function demoNote(label = "Illustrative demo profile") {
-  return `<span class="demo-note">${icon("info")}${escapeHTML(label)}</span>`;
-}
-
 function serviceById(id) {
   return services.find((service) => service.id === id);
 }
@@ -241,7 +237,7 @@ function renderFooter() {
           <span>CareNear</span>
         </a>
         <p>Short visits for the moments in between. A fictional local concept designed around dignity, clarity and consent.</p>
-        <p class="micro"><strong>Zagreb demo</strong><br />Monday-Friday, 08:00-18:00</p>
+        <p class="micro"><strong>Amsterdam demo</strong><br />Monday-Friday, 08:00-18:00</p>
       </div>
       <div class="footer-column">
         <h3>Find support</h3>
@@ -263,7 +259,7 @@ function renderFooter() {
       </div>
     </div>
     <div class="footer-bottom">
-      <span>CareNear working concept · Zagreb · 2026</span>
+      <span>CareNear working concept · Amsterdam · 2026</span>
       <span>All names, checks, prices and visit records are illustrative.</span>
     </div>
   `;
@@ -363,13 +359,13 @@ function renderLanding() {
               </select>
             </label>
             <label>
-              <span>Area in Zagreb</span>
+              <span>Area in Amsterdam</span>
               <select id="quick-area" name="area">
                 <option value="all">All neighbourhoods</option>
-                <option value="Trešnjevka">Trešnjevka</option>
-                <option value="Maksimir">Maksimir</option>
-                <option value="Črnomerec">Črnomerec</option>
-                <option value="Trnje">Trnje</option>
+                <option value="Oud-West">Oud-West</option>
+                <option value="Oost">Oost</option>
+                <option value="Zuid">Zuid</option>
+                <option value="Noord">Noord</option>
               </select>
             </label>
             <button class="button button-large" type="submit">${icon("search")} Find care</button>
@@ -377,7 +373,7 @@ function renderLanding() {
           <a class="secondary-link" href="#/#how-it-works">See how it works ${icon("arrowRight")}</a>
         </div>
         <div class="hero-media">
-          <img src="assets/caregiver-hero.png" alt="Illustrative caregiver and an older woman standing together at a Zagreb apartment door" width="1536" height="1024" />
+          <img src="assets/caregiver-hero.png" alt="Illustrative caregiver and an older woman standing together at an Amsterdam apartment door" width="1536" height="1024" />
           <div class="reassurance-card">
             ${icon("shield")}
             <div>
@@ -454,7 +450,6 @@ function renderLanding() {
             <h2>A few people who can help</h2>
           </div>
           <div>
-            ${demoNote("Sample ratings, availability and reviews")}
             <a class="text-action" href="#/discover">Explore all caregivers ${icon("arrowRight")}</a>
           </div>
         </div>
@@ -467,7 +462,6 @@ function renderLanding() {
     <section class="section-tight section-rule testimonial-section">
       <div class="container testimonial-panel">
         <div>
-          ${demoNote("Illustrative family story")}
           <blockquote>“${escapeHTML(testimonial.quote)}”</blockquote>
           <p class="testimonial-person"><strong>${escapeHTML(testimonial.name)}</strong> · ${escapeHTML(testimonial.persona)}</p>
         </div>
@@ -479,7 +473,7 @@ function renderLanding() {
       <div class="container consent-panel">
         <div>
           <span class="eyebrow">Their choice comes first</span>
-          <h2>Margaret stays in control</h2>
+          <h2>Marleen stays in control</h2>
           <p>Older adults decide who sees their information. In this demo, family access starts with an unchecked consent step for requests made on someone else’s behalf.</p>
           <a class="button" href="#/family-onboarding">Set care preferences</a>
         </div>
@@ -534,14 +528,13 @@ function renderDiscover() {
   main.innerHTML = `
     <section class="page-hero">
       <div class="container">
-        <span class="eyebrow">Local care in Zagreb</span>
+        <span class="eyebrow">Local care in Amsterdam</span>
         <h1>Find someone who feels close by.</h1>
         <p class="lede">Browse fictional caregiver profiles, compare clear hourly rates and choose a neighbourhood. Every person, check and location shown is illustrative.</p>
       </div>
     </section>
     <section class="section-tight">
       <div class="container">
-        <div class="discover-demo-note">${demoNote("Sample ratings, reviews, availability and checks")}</div>
         <form class="filter-panel card" id="filter-form">
           <div class="field">
             <label for="filter-service">Service</label>
@@ -554,14 +547,14 @@ function renderDiscover() {
             <label for="filter-language">Language</label>
             <select class="select" id="filter-language" name="language">
               <option value="all">Any language</option>
-              ${["Croatian", "English", "German"].map((language) => `<option value="${language}" ${filters.language === language ? "selected" : ""}>${language}</option>`).join("")}
+              ${["Dutch", "English", "German", "Arabic"].map((language) => `<option value="${language}" ${filters.language === language ? "selected" : ""}>${language}</option>`).join("")}
             </select>
           </div>
           <div class="field">
             <label for="filter-area">Neighbourhood</label>
             <select class="select" id="filter-area" name="neighborhood">
-              <option value="all">All Zagreb</option>
-              ${["Trešnjevka", "Maksimir", "Črnomerec", "Trnje"].map((area) => `<option value="${area}" ${filters.neighborhood === area ? "selected" : ""}>${area}</option>`).join("")}
+              <option value="all">All Amsterdam</option>
+              ${["Oud-West", "Oost", "Zuid", "Noord"].map((area) => `<option value="${area}" ${filters.neighborhood === area ? "selected" : ""}>${area}</option>`).join("")}
             </select>
           </div>
           <button class="button" type="submit">${icon("sliders")} Apply filters</button>
@@ -592,17 +585,17 @@ function renderDiscover() {
           <aside class="discover-pane map-panel" data-mobile-hidden="${state.discoverPane !== "map"}" aria-label="Illustrative caregiver map">
             <div class="map-head">
               <div>
-                <strong>Zagreb at a glance</strong>
+                <strong>Amsterdam at a glance</strong>
                 <p>Illustrative locations · not live navigation</p>
               </div>
-              ${demoNote("Demo map")}
             </div>
             <div class="illustrative-map">
               <div class="map-river" aria-hidden="true"></div>
               <div class="map-park" aria-hidden="true"></div>
-              <span class="map-label one">Črnomerec</span>
-              <span class="map-label two">Trešnjevka</span>
-              <span class="map-label three">Trnje</span>
+              <span class="map-label one">Oost</span>
+              <span class="map-label two">Oud-West</span>
+              <span class="map-label three">Zuid</span>
+              <span class="map-label four">Noord</span>
               ${results
                 .map(
                   (caregiver) => `
@@ -631,12 +624,24 @@ function renderDiscover() {
     </section>
     <section class="section-tight section-rule">
       <div class="container consent-panel">
-        <div>
+        <div class="consent-panel-content">
           <span class="eyebrow">A useful distinction</span>
           <h2>Checks are shown, not hidden</h2>
           <p>“ID checked” and “References checked” describe this fictional demo profile. They are not live verification results or a promise of future safety.</p>
+          <div class="consent-panel-tags" aria-label="Example profile checks">
+            <span>${icon("check")} ID checked</span>
+            <span>${icon("check")} References checked</span>
+          </div>
+          <a class="button button-outline" href="#/family-onboarding">Start your preferences</a>
         </div>
-        <a class="button button-outline" href="#/family-onboarding">Start your preferences</a>
+        <div class="consent-panel-art" aria-hidden="true">
+          <div class="consent-panel-art-orbit"></div>
+          <div class="consent-panel-art-card">
+            <span class="consent-panel-art-icon">${icon("shield")}</span>
+            <strong>Clear by design</strong>
+            <span>See what each profile label means.</span>
+          </div>
+        </div>
       </div>
     </section>
   `;
@@ -839,7 +844,7 @@ function openContactDialog(error = "") {
           <div class="field-grid">
             <div class="field">
               <label for="contact-name">Contact name <span class="muted">(optional)</span></label>
-              <input class="input" id="contact-name" name="contactName" autocomplete="name" value="${escapeHTML(state.contact.name)}" placeholder="For example, Nika">
+              <input class="input" id="contact-name" name="contactName" autocomplete="name" value="${escapeHTML(state.contact.name)}" placeholder="For example, Eva">
             </div>
             <div class="field">
               <label for="contact-phone">Phone number</label>
@@ -912,7 +917,7 @@ function bookingSummary(step) {
       <div class="summary-row"><span>Service</span><strong>${escapeHTML(serviceName)}</strong></div>
       <div class="summary-row"><span>When</span><strong>${formatDate(state.booking.date)} · ${escapeHTML(state.booking.time || "Choose a time")}</strong></div>
       <div class="summary-row"><span>Length</span><strong>${state.booking.duration} minutes</strong></div>
-      <div class="summary-row"><span>For</span><strong>${escapeHTML(state.booking.forWho === "someone" ? state.booking.recipientName || "Someone else" : "Margaret Novak")}</strong></div>
+      <div class="summary-row"><span>For</span><strong>${escapeHTML(state.booking.forWho === "someone" ? state.booking.recipientName || "Someone else" : "Marleen de Boer")}</strong></div>
       ${step >= 2 && selected ? `<div class="summary-row"><span>Caregiver</span><strong>${escapeHTML(selected.name)}</strong></div>` : ""}
       ${
         step >= 2 && selected
@@ -956,7 +961,7 @@ function mobileBookingSummaryMarkup() {
           <div class="summary-row"><span>Service</span><strong>${escapeHTML(serviceLabel(state.booking.service))}</strong></div>
           <div class="summary-row"><span>Date</span><strong>${formatDate(state.booking.date)}</strong></div>
           <div class="summary-row"><span>Duration</span><strong>${state.booking.duration} minutes</strong></div>
-          <div class="summary-row"><span>For</span><strong>${escapeHTML(state.booking.forWho === "someone" ? state.booking.recipientName || "Someone else" : "Margaret Novak")}</strong></div>
+          <div class="summary-row"><span>For</span><strong>${escapeHTML(state.booking.forWho === "someone" ? state.booking.recipientName || "Someone else" : "Marleen de Boer")}</strong></div>
         </div>
       </details>
     </aside>
@@ -1041,11 +1046,11 @@ function renderBookingStep(step) {
     return `
       <div class="form-section">
         <h2>Who is the visit for?</h2>
-        <p>Margaret’s saved profile is fictional demo content.</p>
+        <p>Marleen’s saved profile is fictional demo content.</p>
         <div class="choice-grid">
           <label class="choice-card">
             <input type="radio" name="forWho" value="self" data-booking-field="forWho" ${state.booking.forWho === "self" ? "checked" : ""}>
-            <div class="choice-copy"><strong>Margaret Novak</strong><span>Myself · saved demo profile</span></div>
+            <div class="choice-copy"><strong>Marleen de Boer</strong><span>Myself · saved demo profile</span></div>
           </label>
           <label class="choice-card">
             <input type="radio" name="forWho" value="someone" data-booking-field="forWho" ${state.booking.forWho === "someone" ? "checked" : ""}>
@@ -1098,7 +1103,7 @@ function renderBookingStep(step) {
     return `
       <div class="form-section">
         <h2>When and where?</h2>
-        <p>Choose a future date and a practical arrival window. Today in Zagreb is ${formatDate(today, { year: true })}.</p>
+        <p>Choose a future date and a practical arrival window. Today in Amsterdam is ${formatDate(today, { year: true })}.</p>
         <div class="field-grid">
           <div class="field span-full desktop-calendar">
             <span class="field-label" id="date-label">Visit date <span class="required">*</span></span>
@@ -1424,7 +1429,7 @@ function handleBookingSubmit(event) {
     recipient:
       state.booking.forWho === "someone"
         ? state.booking.recipientName
-        : "Margaret Novak",
+        : "Marleen de Boer",
     caregiver: caregiver.name,
     total: bookingPrice(caregiver.rate, state.booking.duration),
   };
@@ -1540,7 +1545,7 @@ function renderFamilyOnboarding() {
             <label for="family-language">Preferred language</label>
             <select class="select" id="family-language" data-family-field="language" aria-invalid="${Boolean(errors.language)}" ${errors.language ? 'aria-describedby="family-language-error"' : ""}>
               <option value="">Choose a language</option>
-              ${["Croatian", "English", "German"].map((language) => `<option ${state.family.language === language ? "selected" : ""}>${language}</option>`).join("")}
+              ${["Dutch", "English", "German", "Arabic"].map((language) => `<option ${state.family.language === language ? "selected" : ""}>${language}</option>`).join("")}
             </select>
             ${errorFor(errors, "language", "family-language-error")}
           </div>
@@ -1612,7 +1617,7 @@ function renderCaregiverOnboarding() {
         <legend class="sr-only">Languages</legend>
         <h2 id="caregiver-languages-heading">Languages</h2>
         <div class="choice-grid">
-          ${["Croatian", "English", "German"]
+          ${["Dutch", "English", "German", "Arabic"]
             .map((language) => `<label class="choice-card"><input type="checkbox" data-caregiver-language="${language}" ${state.caregiver.languages.includes(language) ? "checked" : ""} aria-invalid="${Boolean(errors.languages)}" ${errors.languages ? 'aria-describedby="caregiver-languages-error"' : ""}><div class="choice-copy"><strong>${language}</strong><span>Spoken with confidence</span></div></label>`)
             .join("")}
         </div>
@@ -1628,10 +1633,10 @@ function renderCaregiverOnboarding() {
       <div class="form-section">
         <h2 id="onboarding-step-heading" tabindex="-1">Where can you help?</h2>
         <div class="field">
-          <label for="caregiver-area">Main Zagreb area</label>
+          <label for="caregiver-area">Main Amsterdam area</label>
           <select class="select" id="caregiver-area" data-caregiver-field="neighborhood" aria-invalid="${Boolean(errors.neighborhood)}" ${errors.neighborhood ? 'aria-describedby="caregiver-area-error"' : ""}>
             <option value="">Choose an area</option>
-            ${["Trešnjevka", "Maksimir", "Črnomerec", "Trnje"]
+            ${["Oud-West", "Oost", "Zuid", "Noord"]
               .map((area) => `<option ${state.caregiver.neighborhood === area ? "selected" : ""}>${area}</option>`)
               .join("")}
           </select>
@@ -1930,7 +1935,6 @@ function renderVisits() {
     <section class="section-tight">
       <div class="container">
         <div class="visit-view-head">
-          ${demoNote("Sample visit lifecycle")}
           <div class="segmented" role="group" aria-label="Choose visit view">
             <button type="button" data-visit-view="family" aria-pressed="${!recipientView}">Family view</button>
             <button type="button" data-visit-view="recipient" aria-pressed="${recipientView}">For the person receiving care</button>
@@ -2001,7 +2005,7 @@ function renderVisits() {
           <div class="visit-section">
             <h2>Follow-up</h2>
             <p>${escapeHTML(pastVisit.followUp)}</p>
-            <a class="button button-outline button-small" href="#/book/1" data-rebook-ana>${icon("repeat")} Rebook Ana</a>
+            <a class="button button-outline button-small" href="#/book/1" data-rebook-ana>${icon("repeat")} Rebook Sanne</a>
           </div>
         </article>
         <aside class="summary-card card">
@@ -2009,7 +2013,6 @@ function renderVisits() {
           <div class="receipt-total">${money(pastVisit.total)}</div>
           <p class="muted">Paid in this illustrative completed record. Transport was paid separately.</p>
           <button class="button button-outline button-small" type="button" id="download-receipt">${icon("download")} Download receipt</button>
-          <div class="demo-note">${icon("info")} Fictional completed visit</div>
         </aside>
       </div>
     </section>
@@ -2192,7 +2195,7 @@ function route() {
   const path = rawPath.split("#")[0];
   const pageTitles = {
     "/": "Thoughtful care. Close to home.",
-    "/discover": "Find care in Zagreb",
+    "/discover": "Find care in Amsterdam",
     "/book/1": "Book a visit · Step 1",
     "/book/2": "Book a visit · Step 2",
     "/book/3": "Book a visit · Step 3",

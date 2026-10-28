@@ -55,9 +55,9 @@ export function phoneHref(value) {
     : "";
 }
 
-export function todayInZagreb(now = new Date()) {
+export function todayInAmsterdam(now = new Date()) {
   const parts = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "Europe/Zagreb",
+    timeZone: "Europe/Amsterdam",
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -100,7 +100,7 @@ export function formatDate(dateISO, options = {}) {
   return `${read("weekday")}, ${read("day")} ${read("month")}${options.year ? ` ${read("year")}` : ""}`;
 }
 
-export function validateBookingStep(step, state, today = todayInZagreb()) {
+export function validateBookingStep(step, state, today = todayInAmsterdam()) {
   const errors = {};
 
   if (step === 1) {

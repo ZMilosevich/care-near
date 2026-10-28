@@ -1,8 +1,8 @@
 # CareNear local demo
 
-CareNear is a buildless, fictional local concept for arranging thoughtful short caregiver visits in Zagreb. It includes a search-first landing page, caregiver discovery with portrait cards and illustrated map filtering, a three-step booking flow with a persistent mobile summary, family and caregiver onboarding, an interactive visit lifecycle, a completed visit summary, downloadable receipt, and a caregiver request inbox.
+CareNear is a buildless, fictional English-language local concept for arranging thoughtful short caregiver visits in Amsterdam. It includes a search-first landing page, caregiver discovery with portrait cards and illustrated map filtering, a three-step booking flow with a persistent mobile summary, family and caregiver onboarding, an interactive visit lifecycle, a completed visit summary, downloadable receipt, and a caregiver request inbox.
 
-All people, contact details, checks, locations, requests, payments and clinical references are fictional. The app does not connect to a backend, account provider, payment system, messaging service, live map or verification service.
+All people, contact details, checks, locations, requests, payments and clinical references are fictional. Amsterdam neighbourhoods, caregiver language coverage and dates are localized for this demo, while the interface remains in English. The app does not connect to a backend, account provider, payment system, messaging service, live map or verification service.
 
 ## Run locally
 
@@ -23,11 +23,11 @@ No install or build step is required.
 ## Checks
 
 ```sh
-/Users/zmilosevich/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --check js/app.js
-/Users/zmilosevich/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test tests/*.test.js
+npm test
+npm run check
 ```
 
-The Node tests cover caregiver filters, the approved price formula, Europe/Zagreb date handling including malformed dates, booking blockers including someone-else consent, onboarding validation, and receipt content.
+The Node tests cover caregiver filters, the approved price formula, Europe/Amsterdam date handling including malformed dates, booking blockers including someone-else consent, onboarding validation, English receipt content, and runtime/source mirror checks.
 
 With the local server running on port 5183, the focused correction regression suite checks live caregiver prices, service-filter preservation, mobile date selection and focus, onboarding error announcements, and malformed URL handling:
 
@@ -57,7 +57,7 @@ BASE_URL=http://127.0.0.1:5183 /Users/zmilosevich/.cache/codex-runtimes/codex-pr
 
 - `index.html` – document shell, semantic navigation, skip link and live regions
 - `css/styles.css` – visual system and responsive layouts
-- `js/data.js` – fictional caregivers, services, requests and visit fixture
+- `js/data.js` – fictional Amsterdam caregivers, services, requests and visit fixture
 - `js/logic.js` – pure filtering, date, validation, pricing and receipt functions
 - `js/app.js` – hash routing, views, forms and local interactions
 - `tests/browser-corrections.mjs` – focused Playwright regression checks for corrected behavior

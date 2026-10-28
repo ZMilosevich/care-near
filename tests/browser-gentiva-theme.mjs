@@ -326,7 +326,7 @@ try {
   await page
     .locator('input[data-booking-field="forWho"][value="someone"]')
     .check();
-  await page.locator("#recipient-name").fill("Mara Kralj");
+  await page.locator("#recipient-name").fill("Mila Smit");
   await assertSelectorsAtLeast16(
     page,
     [
@@ -437,7 +437,7 @@ try {
     };
   });
   assert.ok(sticky.position === "sticky");
-  assert.match(sticky.text, /Ana Horvat/);
+  assert.match(sticky.text, /Sanne de Vries/);
   assert.match(sticky.text, /Total/);
   await assertSelectorsAtLeast16(
     page,

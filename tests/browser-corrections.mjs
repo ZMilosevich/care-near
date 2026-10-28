@@ -10,6 +10,23 @@ const { chromium } = require("playwright");
 const baseUrl = process.env.BASE_URL || "http://127.0.0.1:5183";
 const qaDirectory = "docs/agent-work/carenear-demo/QA/gentiva-theme";
 
+function addDaysISO(dateISO, amount) {
+  const date = new Date(`${dateISO}T12:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + amount);
+  return date.toISOString().slice(0, 10);
+}
+
+function todayInAmsterdam() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Amsterdam",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(new Date());
+  const read = (type) => parts.find((part) => part.type === type)?.value;
+  return `${read("year")}-${read("month")}-${read("day")}`;
+}
+
 function malformedRequestStatus() {
   const endpoint = new URL(baseUrl);
   return new Promise((resolve, reject) => {
@@ -43,7 +60,10 @@ try {
   await page.locator('[data-booking-time="09:30"]').click();
   await page.getByRole("button", { name: "Continue" }).click();
 
-  assert.match(await page.locator(".summary-card").innerText(), /Ana Horvat/);
+  assert.match(
+    await page.locator(".summary-card").innerText(),
+    /Sanne de Vries/,
+  );
   assert.match(await page.locator(".summary-card").innerText(), /€42/);
   assert.match(
     await page.locator("#booking-review-details").innerText(),
@@ -52,11 +72,14 @@ try {
 
   await page.locator("#review-ack").check();
   await page.locator("#caregiver-marko").check();
-  assert.match(await page.locator(".summary-card").innerText(), /Marko Babić/);
+  assert.match(
+    await page.locator(".summary-card").innerText(),
+    /Daan van Dijk/,
+  );
   assert.match(await page.locator(".summary-card").innerText(), /€39/);
   assert.match(
     await page.locator("#booking-review-details").innerText(),
-    /Marko Babić/,
+    /Daan van Dijk/,
   );
   assert.match(
     await page.locator("#booking-review-details").innerText(),
@@ -71,11 +94,14 @@ try {
 
   await page.locator("#review-ack").check();
   await page.locator("#caregiver-ivana").check();
-  assert.match(await page.locator(".summary-card").innerText(), /Ivana Kovač/);
+  assert.match(
+    await page.locator(".summary-card").innerText(),
+    /Lotte Jansen/,
+  );
   assert.match(await page.locator(".summary-card").innerText(), /€45/);
   assert.match(
     await page.locator("#booking-review-details").innerText(),
-    /Ivana Kovač/,
+    /Lotte Jansen/,
   );
   assert.match(
     await page.locator("#booking-review-details").innerText(),
@@ -95,18 +121,18 @@ try {
   await page.locator("#booking-confirm").click();
   await page.waitForURL(/#\/book\/success$/);
   const successText = await page.locator("main").innerText();
-  assert.match(successText, /Ivana Kovač/);
+  assert.match(successText, /Lotte Jansen/);
   assert.match(successText, /€45/);
   console.log(
-    "booking totals and focus: Ana €42 -> Marko €39 -> Ivana €45; submitted Ivana €45",
+    "booking totals and focus: Sanne €42 -> Daan €39 -> Lotte €45; submitted Lotte €45",
   );
 
   await page.goto(`${baseUrl}/#/book/1`, { waitUntil: "networkidle" });
   await page
     .locator('input[data-booking-field="forWho"][value="someone"]')
     .check();
-  await page.locator("#recipient-name").fill("Mara Kralj");
-  assert.match(await page.locator(".summary-card").innerText(), /Mara Kralj/);
+  await page.locator("#recipient-name").fill("Mila Smit");
+  assert.match(await page.locator(".summary-card").innerText(), /Mila Smit/);
   assert.equal(
     await page.evaluate(() => document.activeElement?.id),
     "recipient-name",
@@ -171,15 +197,21 @@ try {
   await page.goto(`${baseUrl}/#/book/2`, { waitUntil: "networkidle" });
   const mobileDate = page.locator("#mobile-visit-date");
   assert.equal(await mobileDate.isVisible(), true);
-  assert.equal(await mobileDate.getAttribute("min"), "2026-10-27");
-  await mobileDate.fill("2026-12-20");
-  assert.equal(await mobileDate.inputValue(), "2026-12-20");
-  assert.match(await page.locator(".summary-card").innerText(), /20 Dec/);
+  const testToday = todayInAmsterdam();
+  const futureDate = addDaysISO(testToday, 60);
+  const nearbyDate = addDaysISO(testToday, 1);
+  assert.equal(await mobileDate.getAttribute("min"), testToday);
+  await mobileDate.fill(futureDate);
+  assert.equal(await mobileDate.inputValue(), futureDate);
+  assert.match(
+    await page.locator(".summary-card").innerText(),
+    new RegExp(futureDate.slice(8).replace(/^0/, "")),
+  );
   assert.equal(await page.evaluate(() => document.activeElement?.id), "mobile-visit-date");
   await page.locator('[data-booking-time="14:00"]').click();
-  assert.equal(await page.locator("#mobile-visit-date").inputValue(), "2026-12-20");
+  assert.equal(await page.locator("#mobile-visit-date").inputValue(), futureDate);
   await page
-    .locator('.mobile-date-agenda [data-booking-date="2026-10-29"]')
+    .locator(`.mobile-date-agenda [data-booking-date="${nearbyDate}"]`)
     .click();
   await page.waitForFunction(
     () => document.activeElement?.id === "mobile-visit-date",
@@ -271,8 +303,8 @@ try {
   );
   await page
     .locator("#caregiver-experience")
-    .fill("Three years of local care support.");
-  await page.locator('input[data-caregiver-language="Croatian"]').check();
+    .fill("Three years of local care support in Amsterdam.");
+  await page.locator('input[data-caregiver-language="Dutch"]').check();
   await page.getByRole("button", { name: "Continue" }).click();
   await page.waitForFunction(
     () => document.activeElement?.id === "onboarding-step-heading",

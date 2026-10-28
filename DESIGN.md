@@ -2,7 +2,7 @@
 
 ## Product direction
 
-CareNear is a fictional, buildless local demo for short care visits in Zagreb. It should help families understand practical support, keep the older adult’s choices visible, and distinguish a demo request from a confirmed visit. All people, checks, ratings, availability, bookings, calls, payments and visit records are illustrative.
+CareNear is a fictional, buildless English-language local demo for short care visits in Amsterdam. It should help families understand practical support, keep the older adult’s choices visible, and distinguish a demo request from a confirmed visit. All people, checks, ratings, availability, bookings, calls, payments and visit records are illustrative.
 
 This visual system translates the supplied Gentiva reference into CareNear’s own content and structure. It uses editorial serif headlines, restrained charcoal actions, warm ivory surfaces, butter and muted-sage feature blocks, natural photography and compact rounded panels. It does not reuse the reference logo, wording, proprietary imagery or exact composition.
 

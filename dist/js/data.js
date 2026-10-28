@@ -37,21 +37,21 @@ export const services = [
 export const caregivers = [
   {
     id: "ana",
-    name: "Ana Horvat",
+    name: "Sanne de Vries",
     role: "Caregiver",
     rate: 22,
     experience: 6,
-    languages: ["Croatian", "English"],
-    neighborhoods: ["Trešnjevka"],
+    languages: ["Dutch", "English"],
+    neighborhoods: ["Oud-West"],
     services: ["appointment", "errands", "check-in"],
     checks: ["ID checked", "References checked", "First-aid certificate"],
     bio: "Patient, practical support for appointments and everyday routines.",
     detail:
-      "Ana has supported Zagreb families with hospital visits, errands and regular home check-ins. She is calm with stairs, public transport and changing appointment schedules.",
-    initials: "AH",
+      "Sanne has supported Amsterdam families with hospital visits, errands and regular home check-ins for six years. She is calm with stairs, public transport and changing appointment schedules.",
+    initials: "SD",
     portrait: "assets/portrait-ana.jpg",
     portraitAlt:
-      "Stock portrait representing fictional caregiver Ana Horvat",
+      "Stock portrait representing fictional caregiver Sanne de Vries",
     rating: 4.9,
     reviewCount: 34,
     nextAvailability: "Tomorrow, 09:30",
@@ -65,21 +65,21 @@ export const caregivers = [
   },
   {
     id: "marko",
-    name: "Marko Babić",
+    name: "Daan van Dijk",
     role: "Caregiver",
     rate: 20,
     experience: 3,
-    languages: ["Croatian", "German"],
-    neighborhoods: ["Maksimir"],
+    languages: ["Dutch", "English", "German"],
+    neighborhoods: ["Oost"],
     services: ["appointment", "errands", "check-in"],
     checks: ["ID checked", "References checked"],
     bio: "Warm company, errands and reliable accompaniment.",
     detail:
-      "Marko is an easy-going companion for shopping, walks and appointments. Families often ask him for regular weekday support.",
-    initials: "MB",
+      "Daan is an easy-going companion for shopping, walks and appointments. Families often ask him for regular weekday support.",
+    initials: "DD",
     portrait: "assets/portrait-marko.jpg",
     portraitAlt:
-      "Stock portrait representing fictional caregiver Marko Babić",
+      "Stock portrait representing fictional caregiver Daan van Dijk",
     rating: 4.8,
     reviewCount: 21,
     nextAvailability: "Thu, 29 Oct · 14:00",
@@ -93,21 +93,21 @@ export const caregivers = [
   },
   {
     id: "ivana",
-    name: "Ivana Kovač",
+    name: "Lotte Jansen",
     role: "Caregiver",
     rate: 24,
     experience: 9,
-    languages: ["Croatian"],
-    neighborhoods: ["Črnomerec"],
+    languages: ["Dutch"],
+    neighborhoods: ["Zuid"],
     services: ["appointment", "check-in"],
     checks: ["ID checked", "References checked", "First-aid certificate"],
     bio: "Experienced support centred on dignity and independence.",
     detail:
-      "Ivana has nine years of experience supporting older adults at home. She plans visits around a person's own routines and keeps family updates clear and concise.",
-    initials: "IK",
+      "Lotte has nine years of experience supporting older adults at home. She plans visits around a person's own routines and keeps family updates clear and concise.",
+    initials: "LJ",
     portrait: "assets/portrait-ivana.jpg",
     portraitAlt:
-      "Stock portrait representing fictional caregiver Ivana Kovač",
+      "Stock portrait representing fictional caregiver Lotte Jansen",
     rating: 5.0,
     reviewCount: 46,
     nextAvailability: "Fri, 30 Oct · 11:00",
@@ -121,21 +121,21 @@ export const caregivers = [
   },
   {
     id: "petra",
-    name: "Petra Jurić",
+    name: "Noor El Amrani",
     role: "Caregiver",
     rate: 23,
     experience: 4,
-    languages: ["Croatian", "English"],
-    neighborhoods: ["Trnje"],
+    languages: ["Dutch", "English", "Arabic"],
+    neighborhoods: ["Noord"],
     services: ["errands", "check-in"],
     checks: ["ID checked", "References checked"],
     bio: "Friendly local help with errands and time at home.",
     detail:
-      "Petra helps with grocery lists, neighbourhood errands and unhurried company at home. She offers weekday mornings and Saturday afternoons.",
-    initials: "PJ",
+      "Noor helps with grocery lists, neighbourhood errands and unhurried company at home. She offers weekday mornings and Saturday afternoons.",
+    initials: "NE",
     portrait: "assets/portrait-petra.jpg",
     portraitAlt:
-      "Stock portrait representing fictional caregiver Petra Jurić",
+      "Stock portrait representing fictional caregiver Noor El Amrani",
     rating: 4.7,
     reviewCount: 18,
     nextAvailability: "Sat, 31 Oct · 10:00",
@@ -152,8 +152,8 @@ export const caregivers = [
 export const testimonial = {
   quote:
     "Knowing someone could check in, wait with Mum at an appointment and then tell us what happened made a difficult week feel much lighter.",
-  name: "Nika",
-  persona: "Illustrative family member, Zagreb",
+  name: "Eva",
+  persona: "Illustrative family member, Amsterdam",
 };
 
 export const visitLifecycle = [
@@ -173,7 +173,7 @@ export const visitLifecycle = [
     label: "Confirmed",
     nextAction: "Your visit is scheduled. No payment was taken in this demo.",
     message:
-      "Ana and the requested time are confirmed in this illustrative lifecycle.",
+      "Sanne and the requested time are confirmed in this illustrative lifecycle.",
     timeline: [
       ["Request sent", "Today, 10:12"],
       ["Caregiver accepted", "Today, 10:36"],
@@ -185,7 +185,7 @@ export const visitLifecycle = [
     label: "In progress",
     nextAction: "The visit is happening now. Updates appear here.",
     message:
-      "Ana arrived at 09:28 and the visit started at 09:30. Family updates remain intentionally brief.",
+      "Sanne arrived at 09:28 and the visit started at 09:30. Family updates remain intentionally brief.",
     timeline: [
       ["Arrived", "09:28"],
       ["Visit started", "09:30"],
@@ -213,13 +213,13 @@ export const sampleRequests = [
     date: "2026-11-05",
     time: "09:30",
     duration: 90,
-    neighborhood: "Trešnjevka",
-    recipient: "Margaret Novak",
+    neighborhood: "Oud-West",
+    recipient: "Marleen de Boer",
     replyWindow: "2 h",
-    language: "Croatian",
+    language: "Dutch",
     accessibility: "Uses a walking frame; stairs are slow",
     instructions:
-      "Help Margaret prepare, go with her to the cardiology clinic and bring her home. Her daughter will confirm the taxi.",
+      "Help Marleen prepare, go with her to the cardiology clinic and bring her home. Her daughter will confirm the taxi.",
     status: "new",
   },
   {
@@ -228,10 +228,10 @@ export const sampleRequests = [
     date: "2026-11-06",
     time: "14:00",
     duration: 60,
-    neighborhood: "Maksimir",
-    recipient: "Josip Radić",
+    neighborhood: "Oost",
+    recipient: "Wim Bakker",
     replyWindow: "5 h",
-    language: "Croatian",
+    language: "Dutch",
     accessibility: "No mobility support needed",
     instructions:
       "Collect a prescription and a short shopping list. Please call on arrival.",
@@ -243,10 +243,10 @@ export const sampleRequests = [
     date: "2026-11-07",
     time: "10:00",
     duration: 30,
-    neighborhood: "Črnomerec",
-    recipient: "Marija Novak",
+    neighborhood: "Zuid",
+    recipient: "Els de Groot",
     replyWindow: "1 day",
-    language: "Croatian",
+    language: "Dutch",
     accessibility: "Prefers a quiet visit at home",
     instructions:
       "A short social visit and help preparing a simple lunch.",
@@ -259,16 +259,16 @@ export const pastVisit = {
   caregiverId: "ana",
   service: "appointment",
   date: "2026-10-23",
-  recipient: "Margaret Novak",
+  recipient: "Marleen de Boer",
   tasks: [
-    "Helped Margaret get ready and leave the house",
+    "Helped Marleen get ready and leave the house",
     "Accompanied her to the cardiology clinic and waited with her",
     "Took her home and made sure she had lunch",
   ],
   observations:
-    "Margaret was in good spirits. She tired on the stairs at the clinic, so she rested on each landing.",
+    "Marleen was in good spirits. She tired on the stairs at the clinic, so she rested on each landing.",
   followUp:
-    "The doctor asked for a repeat blood test in two weeks. Would you like Ana to book a visit for that?",
+    "The doctor asked for a repeat blood test in two weeks. Would you like Sanne to book a visit for that?",
   timeline: [
     ["Arrived", "09:28"],
     ["Visit started", "09:30"],
