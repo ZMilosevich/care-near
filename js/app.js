@@ -1714,7 +1714,6 @@ function onboardingShell(title, lede, step, labels, content, kind, errors) {
   return `
     <section class="page-hero">
       <div class="container">
-        <div class="breadcrumb"><a href="#/">CareNear</a><span aria-hidden="true">/</span><span>${kind === "family" ? "Family setup" : "Caregiver application"}</span></div>
         <span class="eyebrow">${kind === "family" ? "Family and seeker setup" : "Caregiver application"}</span>
         <h1>${escapeHTML(title)}</h1>
         <p class="lede">${escapeHTML(lede)}</p>

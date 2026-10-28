@@ -1,0 +1,4 @@
+
+> care-near-demo@1.0.0 check
+> node --check js/app.js && node --check js/data.js && node --check js/logic.js && node --check server.mjs && node --check tests/browser-corrections.mjs && node --check tests/browser-refinement.mjs && node --check tests/browser-gentiva-theme.mjs
+

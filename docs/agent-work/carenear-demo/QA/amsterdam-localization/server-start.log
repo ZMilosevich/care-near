@@ -1,0 +1,11 @@
+Error: listen EPERM: operation not permitted 0.0.0.0:5173
+    at Server.setupListenHandle [as _listen2] (node:net:1994:21)
+    at listenInCluster (node:net:2073:12)
+    at node:net:2282:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EPERM',
+  errno: -1,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 5173
+}

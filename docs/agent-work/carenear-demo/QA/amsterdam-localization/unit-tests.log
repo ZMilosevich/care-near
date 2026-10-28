@@ -1,0 +1,23 @@
+
+> care-near-demo@1.0.0 test
+> node --test tests/*.test.js
+
+✔ appointment price follows the approved hourly, travel and fee formula (0.832417ms)
+✔ combined caregiver filters narrow results and can produce an empty set (0.780208ms)
+✔ Amsterdam date helpers return stable localised dates (13.858583ms)
+✔ booking validation blocks someone-else requests until consent is checked (0.141541ms)
+✔ booking validation rejects past dates and accepts a complete future visit (0.102375ms)
+✔ onboarding validators require consent and a complete caregiver profile (0.095333ms)
+✔ receipt text preserves the completed-visit details and demo boundary (2.444709ms)
+✔ visit lifecycle statuses advance only in the approved order (0.09375ms)
+✔ trusted-contact phone values accept dialer characters and reject malformed input (0.199625ms)
+✔ runtime copy and fixture data consistently use the Amsterdam locale (1.429667ms)
+✔ deployable dist assets match the localised source (1.012458ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 117.940666

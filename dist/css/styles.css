@@ -1379,10 +1379,10 @@ h3 {
 
 .testimonial-panel blockquote {
   max-width: 930px;
-  margin: 24px 0 16px;
+  margin: 0 0 16px;
   color: var(--ink);
   font-family: var(--heading);
-  font-size: clamp(2.2rem, 3.5vw, 2.4rem);
+  font-size: clamp(2.2rem, 3.5vw, 2rem);
   font-weight: 500;
   line-height: 1.2;
 }
@@ -2921,7 +2921,7 @@ h3 {
 
 .request-list {
   display: grid;
-  gap: 8px;
+  gap: 14px;
 }
 
 .request-row {
