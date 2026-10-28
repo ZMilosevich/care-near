@@ -5,7 +5,10 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(fileURLToPath(new URL(".", import.meta.url)));
 const requestedPort = Number(process.env.PORT || 5173);
-const host = process.env.HOST || "127.0.0.1";
+// Railway and other container platforms route traffic to the container's
+// network interface, so bind all interfaces by default. Local development
+// can still override this with HOST=127.0.0.1.
+const host = process.env.HOST || "0.0.0.0";
 const contentTypes = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
