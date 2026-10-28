@@ -1,0 +1,5 @@
+theme: local Playfair Display and DM Sans, Gentiva palette, black action and card shadow passed
+landing: 50-56px two-line hero, anchored search, social proof and aligned cards passed
+responsive: 390px mobile order and 320px route reflow passed
+motion: reduced-motion transitions reduced to 0.01ms
+routes: all hash screens rendered without console errors

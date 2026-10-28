@@ -1,0 +1,6 @@
+booking totals and focus: Ana €42 -> Marko €39 -> Ivana €45; submitted Ivana €45
+service preservation: supported filters retained; unsupported filter fell back to first service
+mobile date: future date persisted and visible date field retained focus
+onboarding: error summaries announced, ARIA associations present, Continue and Back focus handled
+server: malformed encoded path returned 400
+browser corrections: all focused assertions passed

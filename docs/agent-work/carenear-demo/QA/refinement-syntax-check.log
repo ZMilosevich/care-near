@@ -1,0 +1,12 @@
+check js/app.js
+exit 0
+check js/data.js
+exit 0
+check js/logic.js
+exit 0
+check server.mjs
+exit 0
+check tests/browser-corrections.mjs
+exit 0
+check tests/browser-refinement.mjs
+exit 0

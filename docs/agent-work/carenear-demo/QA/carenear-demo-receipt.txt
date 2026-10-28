@@ -1,0 +1,13 @@
+CareNear demo receipt
+Fictional illustrative data
+
+Visit: Margaret Novak
+Caregiver: Ana Horvat
+Date: Fri, 23 Oct 2026
+Reference: visit-ana
+
+Appointment support
+Total paid: €42.00
+Transport: paid separately
+
+This receipt is part of a local product demo.

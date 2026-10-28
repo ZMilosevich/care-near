@@ -1,0 +1,69 @@
+landing 1440 measurements {
+  headingLines: 2,
+  headingSize: 53.28,
+  searchBottom: 571.21875,
+  secondaryBottom: 627.21875,
+  primaryActions: 1,
+  bookCta: false,
+  socialProofText: 'A small circle, made easier to see.\n' +
+    'Illustrative product data, updated for this demo.\n' +
+    '\n' +
+    '1,240\n' +
+    'sample visits\n' +
+    '4.9 average\n' +
+    'sample rating\n' +
+    '2 h\n' +
+    'sample reply time',
+  cardFooterTops: [ 2902, 2902, 2902 ],
+  stepIconPaths: 4
+}
+landing 1280 fold measurements {
+  searchBottom: 559,
+  secondaryBottom: 615,
+  headingSize: 47.36,
+  viewportHeight: 800,
+  steps: 4,
+  stepIcons: 4,
+  testimonial: true,
+  sampleLabel: true
+}
+portrait display {
+  media: {
+    x: 39,
+    y: 2320.890625,
+    width: 380.65625,
+    height: 299.765625,
+    top: 2320.890625,
+    right: 419.65625,
+    bottom: 2620.65625,
+    left: 39
+  },
+  portrait: {
+    x: 39,
+    y: 2320.890625,
+    width: 380.65625,
+    height: 299.765625,
+    top: 2320.890625,
+    right: 419.65625,
+    bottom: 2620.65625,
+    left: 39
+  },
+  image: {
+    x: 39,
+    y: 2320.890625,
+    width: 380.65625,
+    height: 299.765625,
+    top: 2320.890625,
+    right: 419.65625,
+    bottom: 2620.65625,
+    left: 39
+  },
+  imageDisplay: 'block',
+  imageOpacity: '1'
+}
+landing fold and hierarchy: primary search and quiet secondary link passed
+font sizes: {".hero .lede":17.28,".service-card p":16,".caregiver-meta":16,".check-pill":16,".button":16.64,".demo-note":16}
+portraits: local assets and meaningful fictional-alt text passed
+visit lifecycle: all four states, pending submission, and recipient view passed
+trusted contact: empty, invalid, and valid local-only paths passed
+booking: €42 -> €39, consent, mobile sticky summary and 320px reflow passed

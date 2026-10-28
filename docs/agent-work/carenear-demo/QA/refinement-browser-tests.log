@@ -1,0 +1,61 @@
+landing 1440 measurements {
+  headingLines: 2,
+  headingSize: 56,
+  searchBottom: 529.90625,
+  secondaryBottom: 573.90625,
+  primaryActions: 1,
+  bookCta: false,
+  underlineColor: 'rgb(243, 205, 100)',
+  cardFooterTops: [ 2676, 2676, 2676 ],
+  stepIconPaths: 4
+}
+landing 1280 fold measurements {
+  searchBottom: 524.8125,
+  secondaryBottom: 568.8125,
+  headingSize: 51.2,
+  viewportHeight: 800,
+  steps: 4,
+  stepIcons: 4,
+  testimonial: true,
+  sampleLabel: true
+}
+portrait display {
+  media: {
+    x: 33,
+    y: 2139.40625,
+    width: 391.328125,
+    height: 273.921875,
+    top: 2139.40625,
+    right: 424.328125,
+    bottom: 2413.328125,
+    left: 33
+  },
+  portrait: {
+    x: 33,
+    y: 2139.40625,
+    width: 391.328125,
+    height: 273.921875,
+    top: 2139.40625,
+    right: 424.328125,
+    bottom: 2413.328125,
+    left: 33
+  },
+  image: {
+    x: 33,
+    y: 2139.40625,
+    width: 391.328125,
+    height: 273.921875,
+    top: 2139.40625,
+    right: 424.328125,
+    bottom: 2413.328125,
+    left: 33
+  },
+  imageDisplay: 'block',
+  imageOpacity: '1'
+}
+landing fold and hierarchy: primary search and quiet secondary link passed
+font sizes: {".hero .lede":18,".service-card p":16,".caregiver-meta":16,".check-pill":16,".button":16,".demo-note":16}
+portraits: local assets and meaningful fictional-alt text passed
+visit lifecycle: all four states, pending submission, and recipient view passed
+trusted contact: empty, invalid, and valid local-only paths passed
+booking: €42 -> €39, consent, mobile sticky summary and 320px reflow passed

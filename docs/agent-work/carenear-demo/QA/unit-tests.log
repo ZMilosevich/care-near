@@ -1,0 +1,15 @@
+✔ appointment price follows the approved hourly, travel and fee formula (0.853625ms)
+✔ combined caregiver filters narrow results and can produce an empty set (0.428208ms)
+✔ Zagreb date helpers return stable ISO dates independent of host zone formatting (13.332875ms)
+✔ booking validation blocks someone-else requests until consent is checked (0.145875ms)
+✔ booking validation rejects past dates and accepts a complete future visit (0.103375ms)
+✔ onboarding validators require consent and a complete caregiver profile (0.095833ms)
+✔ receipt text preserves the completed-visit details and demo boundary (0.244958ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 69.010125
